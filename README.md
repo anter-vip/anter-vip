@@ -8,27 +8,42 @@
 
 ## 👋 About
 
-```python
-class DataAnalyst:
-    name      = "Ahmed Anter"
-    education = "BSc Information Systems, Faculty of Computers & Information, Sadat City University"
-    location  = "Egypt 🇪🇬"
-    languages = ["Arabic (native)", "English"]
+<table>
+<tr>
+<td width="62%" valign="top">
 
-    def focus(self):
-        return ["Sales & inventory analytics", "BI dashboards", "Data pipelines (ETL)"]
+### 🧑‍💻 Ahmed Anter · Data Analyst
 
-    def background(self):
-        return "Hands-on sales and inventory analysis for a retail store, plus home-security systems."
+📍 **Egypt** 🇪🇬 &nbsp;·&nbsp; 🗣️ **Arabic** (native), **English**
 
-    def goal(self):
-        return "Data analyst / data engineer role in Egypt and the Gulf"
-```
+🎓 BSc Information Systems · Sadat City University
 
-- 🔭 Building **لوحة البصيرة (Al-Basira)**, an Arabic BI platform for retail chains (private repo)
-- 🌱 Improving **SQL, data modeling and data engineering**
-- 📊 Interested in **Arabic-first analytics**: RTL dashboards and local currency and tax rules
-- 💡 Fun fact: I'd rather spot a bad data row than a good meme 😄
+🎯 **Goal:** Data Analyst / Data Engineer role in Egypt & the Gulf
+
+<br/>
+
+**🔭 Now building:** **Al-Basira (لوحة البصيرة)**, an Arabic BI platform for retail chains *(private)*
+
+**🌱 Learning:** Advanced SQL · Data modeling · Data engineering
+
+**📊 Focus:** Sales & inventory analytics · BI dashboards · ETL pipelines
+
+**💡 Fun fact:** I'd rather spot a bad data row than a good meme 😄
+
+</td>
+<td width="38%" align="center" valign="middle">
+
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:0F2027,100:2C5364&height=60&section=header&text=DATA%20%E2%86%92%20DECISIONS&fontSize=18&fontColor=00F5D4&fontAlignY=60" width="100%"/>
+
+<br/><br/>
+
+| 📈 | 🧠 | 🗄️ |
+|:-:|:-:|:-:|
+| **Analyst** | **BI** | **ETL** |
+
+</td>
+</tr>
+</table>
 
 ---
 
