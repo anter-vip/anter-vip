@@ -11,12 +11,12 @@
 
 <p align="center"><img src="assets/hero.svg" width="850" alt="generative flow-field hero — Perlin noise particle trails drawing themselves, computed daily in Python"/></p>
 
-<p align="center"><img src="assets/terminal.svg" width="850" alt="terminal intro typing whoami / role / insights commands"/></p>
+<p align="center"><img src="assets/terminal.svg" width="850" alt="terminal session printing the about narrative: whoami, location, focus, stack, daily generators"/></p>
 
 <p align="center">
-  <a href="https://www.linkedin.com/in/ahmed-anter"><img src="https://img.shields.io/badge/LinkedIn-050505?style=for-the-badge&logo=linkedin&logoColor=00E5FF&color=0B0B0F&labelColor=050505&link=https://www.linkedin.com/in/ahmed-anter" alt="LinkedIn"/></a>
+  <a href="https://www.linkedin.com/in/antter"><img src="https://img.shields.io/badge/LinkedIn-050505?style=for-the-badge&logo=linkedin&logoColor=00E5FF&color=0B0B0F&labelColor=050505" alt="LinkedIn"/></a>
   <a href="https://github.com/anter-vip"><img src="https://img.shields.io/badge/Portfolio-050505?style=for-the-badge&logo=github&logoColor=00E5FF&color=0B0B0F&labelColor=050505" alt="Portfolio"/></a>
-  <a href="mailto:anter-vip@users.noreply.github.com"><img src="https://img.shields.io/badge/Email-050505?style=for-the-badge&logo=gmail&logoColor=00E5FF&color=0B0B0F&labelColor=050505" alt="Email"/></a>
+  <a href="mailto:xantterx@gmail.com"><img src="https://img.shields.io/badge/Email%20-xantterx%40gmail.com-050505?style=for-the-badge&logo=gmail&logoColor=00E5FF&color=0B0B0F&labelColor=050505" alt="Email"/></a>
   <a href="https://github.com/anter-vip/anter-vip"><img src="https://img.shields.io/badge/CV-050505?style=for-the-badge&logo=readthedocs&logoColor=00E5FF&color=0B0B0F&labelColor=050505" alt="CV"/></a>
 </p>
 
@@ -27,15 +27,13 @@
 <tr>
 <td width="46%" valign="middle">
 
-> **Ahmed Anter** · Data Analyst & Software Developer · Egypt 🇪🇬
->
-> I turn raw sales & inventory data into decisions — and I build the
-> pipelines, dashboards and tools that make the decision obvious.
-> Arabic-first BI, pandas under the hood, dark terminals on the surface.
->
-> **This whole profile is generated code:** Perlin fields, Lloyd's
-> K-Means, QuickSort traces and Conway generations — recomputed from
-> my real GitHub data, every morning.
+#### Ahmed Anter · Data Analyst & Software Developer 🇪🇬
+
+- 📍 **Egypt** — open to **Data Analyst / Data Engineer** roles
+- 🔭 **Now building:** *Al-Basira*, an Arabic-first BI platform
+- 🧮 **Focus:** sales & inventory analytics · dashboards · ETL
+- ⚙️ **This profile is generated code** — see the terminal above
+- 📫 [xantterx@gmail.com](mailto:xantterx@gmail.com) · [linkedin.com/in/antter](https://www.linkedin.com/in/antter)
 
 </td>
 <td width="54%" align="center" valign="middle">

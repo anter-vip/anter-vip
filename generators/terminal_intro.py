@@ -16,17 +16,19 @@ from common import (  # noqa: E402
     Svg, frame, seed_today,
 )
 
-H = 330
-CH = 8.4            # advance width of one monospace char at 14px
-STEP = 0.055        # seconds per typed character
-LOOP = 13.0         # full cycle incl. pause before replay
+H = 372
+CH = 8.0            # advance width of one monospace char at 14px
+STEP = 0.05         # seconds per typed character
+LOOP = 15.0         # full cycle incl. pause before replay
 
-# (prompt, command, response) — response appears after a short think pause
+# (prompt, command, response) — the real "about" narrative, told as a session
 LINES = [
-    ("$", "whoami", "Ahmed Anter — Data Analyst · Software Developer"),
-    ("$", "cat role.txt", "Python · SQL · Power BI · TypeScript · React"),
-    ("$", "python insights.py --from raw_data", "Turning raw data into decisions."),
-    ("$", "git log --oneline -1", "feat(anter-vip): profile regenerated daily by GH Actions"),
+    ("$", "whoami", "Ahmed Anter · Data Analyst & Developer"),
+    ("$", "cat location.txt", "Egypt 🇪🇬 · Arabic · English"),
+    ("$", "cat focus.txt", "raw sales & inventory → decisions"),
+    ("$", "cat stack.txt", "Arabic-first BI · pandas · ETL · dark UI"),
+    ("$", "python profile.py --daily", "Perlin · K-Means · QuickSort · Conway"),
+    ("$", "git log -1 --oneline", "regenerated from real GitHub data ✓"),
 ]
 
 
@@ -47,14 +49,18 @@ def typed_line(svg: Svg, idx: int, x: float, y: float, prompt: str,
     width_cmd = n_cmd * CH
     width_all = chars * CH
 
-    # prompt (cyan $) + command + response texts, clipped by an advancing rect
+    # prompt (cyan $) + command + response texts, clipped by an advancing rect.
+    # The rect's STATIC width is the full reveal width, so renderers that don't
+    # run SMIL (GitHub's blob preview, PNG exports) still show the whole line;
+    # when animated, the <animate> drives it 0 -> full for the typing effect.
     clip_id = f"tc{idx}"
     anim = _discrete(
         [0] * 2 + [i * CH for i in range(1, chars + 1)] * 2,
         _times(chars, t0),
     )
     svg.defs(
-        f'<clipPath id="{clip_id}"><rect x="{x:.1f}" y="{y - 16:.1f}" width="0" height="22">'
+        f'<clipPath id="{clip_id}"><rect x="{x:.1f}" y="{y - 16:.1f}"'
+        f' width="{width_all:.1f}" height="22">'
         f'<animate attributeName="width"{anim}/>'
         f"</rect></clipPath>"
     )
@@ -98,14 +104,14 @@ def build() -> str:
                     anchor="end"))
 
     # typing lines, sequential
-    t = 0.8
+    t = 0.6
     x0 = wx + 26
     for idx, (p, cmd, resp) in enumerate(LINES):
-        y = wy + 66 + idx * 46
+        y = wy + 60 + idx * 40
         t = typed_line(svg, idx, x0, y, p, cmd, resp, t)
 
     # block cursor parked after the last line, blinking (not typed — it idles)
-    last_y = wy + 66 + (len(LINES) - 1) * 46
+    last_y = wy + 60 + (len(LINES) - 1) * 40
     cx = x0 + (len(f"$ {LINES[-1][1]}") + len(LINES[-1][2]) + 1) * CH
     svg.el(
         f'<rect x="{cx:.1f}" y="{last_y - 13}" width="8" height="16" fill="{CYAN}">'
