@@ -1,0 +1,30 @@
+name: snake
+
+"on":
+  workflow_dispatch:
+  schedule:
+    - cron: "40 5 * * *"        # daily, after generate-art has had its run
+
+permissions:
+  contents: write
+
+jobs:
+  snake:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # contribution graph snake + snake eating it, recolored to the cyan/black palette
+      - uses: Platane/snk/svg-only@v3
+        with:
+          github_user_name: anter-vip
+          outputs: |
+            dist/assets/snake.svg?color_bg=#101018&color_sect_bkg=#0B0B0F&color_sect_root=#00E5FF&color_sect_child=#0A6C7A&color_out_of_range=#1A1A22
+            dist/assets/snake-eating.svg?color_bg=#101018&color_sect_bkg=#0B0B0F&color_sect_root=#00E5FF&color_sect_child=#0A6C7A&color_out_of_range=#1A1A22
+
+      - uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: output
+          publish_dir: dist
+          keep_files: true

@@ -1,0 +1,55 @@
+name: generate-art
+"on":
+  schedule:
+    - cron: "17 5 * * *"          # daily, off-round hour to avoid queue spikes
+  workflow_dispatch:               # + manual button
+
+permissions:
+  contents: write                  # minimal: only commit assets back to this repo
+
+concurrency:
+  group: generate
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install deps
+        run: pip install -r requirements.txt
+
+      - name: Today stamp
+        id: date
+        run: echo "today=$(date -u +%Y-%m-%d)" >> "$GITHUB_OUTPUT"
+
+      - name: Run all generators (fail-soft — one broken api call never kills the page)
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GEN_DATE: ${{ steps.date.outputs.today }}
+        run: |
+          cd generators
+          for f in hero_flowfield terminal_intro kmeans_skills sorting_visualizer \
+                   life_contributions stats_dashboard force_graph_stack project_cards \
+                   footer_line; do
+            echo "::group::${f}"
+            python "$f.py" || echo "::warning::${f} failed — previous asset kept"
+            echo "::endgroup::"
+          done
+
+      - name: Commit assets only if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add assets/
+          if git diff --cached --quiet; then
+            echo "assets unchanged — nothing to commit"
+          else
+            git commit -m "bot: daily generative refresh $(date -u +%Y-%m-%d)"
+            git push
+          fi
